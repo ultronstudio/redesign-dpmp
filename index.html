@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DPMP – návrh modernizace</title>
+  <meta name="description" content="Neoficiální návrh modernizace úvodní stránky Dopravního podniku města Pardubic a.s.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Přeskočit na hlavní obsah</a>
+
+<header class="site-header">
+  <div class="container-xl header-row">
+    <a class="brand" href="#" aria-label="DPMP – úvodní stránka">
+      <img src="https://www.dpmp.cz/page/img/pic/dpmp_logo.svg" alt="Dopravní podnik města Pardubic a.s.">
+    </a>
+
+    <nav class="desktop-nav" aria-label="Hlavní navigace">
+      <a class="active" href="#">Cestování MHD</a>
+      <a href="#">Terminály HD</a>
+      <a href="#">Další služby</a>
+      <a href="#">O nás</a>
+      <a href="#">Kariéra</a>
+      <a href="#">Kontakt</a>
+    </nav>
+
+    <div class="header-tools">
+      <a class="phone" href="tel:+420466899899">
+        <span>Infolinka</span>
+        <strong>466 899 899</strong>
+      </a>
+      <button type="button" class="icon-button search-toggle" aria-label="Hledat">
+        <i class="bi bi-search"></i>
+      </button>
+      <a href="#" class="lang">EN</a>
+      <button class="icon-button d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-label="Menu">
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="search-panel" hidden>
+    <div class="container-xl">
+      <form class="site-search-form">
+        <label for="siteSearch">Hledat na webu</label>
+        <input id="siteSearch" type="search" placeholder="Zadejte hledaný výraz">
+        <button type="submit">Hledat</button>
+      </form>
+    </div>
+  </div>
+</header>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu">
+  <div class="offcanvas-header">
+    <strong>Menu</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Zavřít"></button>
+  </div>
+  <div class="offcanvas-body mobile-links">
+    <a href="#">Cestování MHD</a>
+    <a href="#">Terminály HD</a>
+    <a href="#">Další služby</a>
+    <a href="#">O nás</a>
+    <a href="#">Kariéra</a>
+    <a href="#">Kontakt</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <section class="travel-area">
+    <div class="container-xl">
+      <div class="travel-grid">
+        <section class="planner">
+          <div class="planner-tabs" role="tablist">
+            <button class="planner-tab active" data-panel="connectionPanel" type="button">Vyhledávač spojení</button>
+            <button class="planner-tab" data-panel="timetablePanel" type="button">Jízdní řády</button>
+            <button class="planner-tab" data-panel="departuresPanel" type="button">Panel odjezdů</button>
+          </div>
+
+          <div class="planner-content">
+            <div id="connectionPanel" class="planner-panel">
+              <form id="connectionForm">
+                <div class="route-line">
+                  <div>
+                    <label for="from">Odkud</label>
+                    <input id="from" type="text" placeholder="Zastávka nebo adresa">
+                  </div>
+
+                  <button id="swapStops" class="swap-stops" type="button" aria-label="Prohodit odkud a kam">
+                    <i class="bi bi-arrow-left-right"></i>
+                  </button>
+
+                  <div>
+                    <label for="to">Kam</label>
+                    <input id="to" type="text" placeholder="Zastávka nebo adresa">
+                  </div>
+                </div>
+
+                <div class="time-line">
+                  <div>
+                    <label for="date">Datum</label>
+                    <input id="date" type="date">
+                  </div>
+                  <div>
+                    <label for="time">Čas</label>
+                    <input id="time" type="time">
+                  </div>
+                  <button class="find-btn" type="submit">
+                    <i class="bi bi-search"></i>
+                    Najít spoj
+                  </button>
+                </div>
+
+                <div class="planner-links">
+                  <a href="#">Rozšířené vyhledávání</a>
+                  <a href="#">Koupit jízdenku</a>
+                </div>
+              </form>
+            </div>
+
+            <div id="timetablePanel" class="planner-panel" hidden>
+              <div class="panel-grid">
+                <a href="#">Jízdní řády</a>
+                <a href="#">Jízdní řády do mobilu</a>
+                <a href="#">Schéma sítě MHD Pardubice</a>
+                <a href="#">Nostalgické linky</a>
+              </div>
+            </div>
+
+            <div id="departuresPanel" class="planner-panel" hidden>
+              <form class="departures-form">
+                <label for="stopSearch">Zastávka</label>
+                <div>
+                  <input id="stopSearch" type="text" placeholder="Zadejte název zastávky">
+                  <button type="button">Zobrazit odjezdy</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <aside class="quick-live">
+          <a href="#" class="quick-live-item red">
+            <span class="quick-live-icon"><i class="bi bi-bus-front-fill"></i></span>
+            <strong>Online poloha vozů MHD</strong>
+            <i class="bi bi-arrow-right"></i>
+          </a>
+
+          <a href="#" class="quick-live-item blue">
+            <span class="quick-live-icon parking">P</span>
+            <strong>Obsazenost parkovišť</strong>
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="traffic-section">
+    <div class="container-xl">
+      <div class="traffic-head">
+        <div class="traffic-title-group">
+          <h2>Aktuálně</h2>
+          <span>Infolinka <strong>466 899 899</strong></span>
+        </div>
+        <a href="#">Všechny aktuality z dopravy <i class="bi bi-arrow-right"></i></a>
+      </div>
+
+      <div class="traffic-grid">
+        <article>
+          <a href="#">Změny jízdních řádů od 1. 9. 2026</a>
+          <div class="lines">
+            <span>1</span><span>2</span><span>3</span><span>5</span><span>6</span><span>8</span><span>9</span>
+            <span>12</span><span>13</span><span>18</span><span>28</span><span>29</span><span>88</span><span>90</span>
+          </div>
+        </article>
+
+        <article>
+          <a href="#">Přesunutí zastávky Úhřetice</a>
+          <div class="lines"><span>28</span></div>
+        </article>
+
+        <article>
+          <a href="#">Přesunutí zastávky Ulice Svobody od 28.8.2026</a>
+          <div class="lines"><span>6</span><span>10</span><span>25</span><span class="night">98</span></div>
+        </article>
+
+        <article>
+          <a href="#">Přesunutí zastávky Sukova od 19.8.2026</a>
+          <div class="lines"><span>2</span><span>11</span><span>13</span></div>
+        </article>
+
+        <article class="alert-article">
+          <a href="#">Pozor na podvodné SMS zprávy o nezaplaceném parkovném</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="primary-services">
+    <div class="container-xl">
+      <h2>Cestování MHD</h2>
+
+      <div class="service-grid">
+        <section class="service-column">
+          <header><span class="red-bar"></span><h3>Jízdenky</h3></header>
+          <a href="https://eshop.dpmp.cz/">E-shop</a>
+          <a href="#">Koupit jízdenku</a>
+          <a href="#">Tarif jízdného MHD</a>
+          <a href="#">Přepravní a tarifní podmínky</a>
+        </section>
+
+        <section class="service-column">
+          <header><span class="red-bar"></span><h3>Pardubická karta</h3></header>
+          <a href="#">Nová Pardubická karta</a>
+          <a href="#">Virtuální Pardubická karta (VIPKA)</a>
+          <a href="#">Platební karta</a>
+          <a href="#">Odbavovací systém</a>
+        </section>
+
+        <section class="service-column">
+          <header><span class="blue-bar"></span><h3>Jízdní řády</h3></header>
+          <a href="#">Jízdní řády</a>
+          <a href="#">Jízdní řády do mobilu</a>
+          <a href="#">Schéma sítě MHD Pardubice</a>
+          <a href="#">Aktuálně z dopravy</a>
+        </section>
+
+        <section class="service-column">
+          <header><span class="blue-bar"></span><h3>Informace</h3></header>
+          <a href="#">Často kladené dotazy</a>
+          <a href="#">Ztráty a nálezy</a>
+          <a href="#">Dotazy a reklamace</a>
+          <a href="#">Kde mám vystoupit</a>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="secondary-services">
+    <div class="container-xl secondary-grid">
+      <section>
+        <h2>Další služby</h2>
+        <div class="link-grid two">
+          <a href="#">Autoškola a školící středisko</a>
+          <a href="#">Zájezdová doprava</a>
+          <a href="#">Objednávka autobusu</a>
+          <a href="#">Parkování v Pardubicích</a>
+          <a href="#">Reklama v MHD</a>
+          <a href="#">Výletní loď Arnošt</a>
+          <a href="#">Servisní služby</a>
+          <a href="#">Plnící stanice CNG</a>
+        </div>
+      </section>
+
+      <section>
+        <h2>O nás</h2>
+        <div class="link-grid">
+          <a href="#">Základní informace</a>
+          <a href="#">Evropské projekty</a>
+          <a href="#">Výběrová řízení</a>
+          <a href="#">Výroční zprávy</a>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <section class="footer-actions">
+    <div class="container-xl">
+      <div class="footer-action-grid">
+        <a href="#">
+          <strong>Kariéra</strong>
+          <span>Volná pracovní místa</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+        <a href="#">
+          <strong>Kontakt</strong>
+          <span>Zákaznické centrum a kontaktní osoby</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container-xl">
+    <div class="footer-main">
+      <img src="https://www.dpmp.cz/page/img/pic/dpmp_logo-footer.svg" alt="Dopravní podnik města Pardubic a.s.">
+
+      <div>
+        <strong>Dopravní podnik města Pardubic a.s.</strong>
+        <span>Teplého 2141, Pardubice</span>
+      </div>
+
+      <div>
+        <a href="#">Ochrana osobních údajů a GDPR</a>
+        <a href="#">Prohlášení o přístupnosti</a>
+      </div>
+
+      <div class="social">
+        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+
+    <div class="copyright">© 2026 Dopravní podnik města Pardubic a.s.</div>
+  </div>
+</footer>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="demoToast" class="toast">
+    <div class="toast-body">Ukázkový návrh – vyhledávač není napojen na ostrá data DPMP.</div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
